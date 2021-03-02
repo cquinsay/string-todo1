@@ -30,15 +30,54 @@ console.log(getDigits("0s1d2w3t4y5s6s7v8s9"))
 // Given " there's no free lunch - gotta pay yer way. ", return "TNFL-GPYW". 
 
 // Given "Live from New York, it's Saturday Night!", return "LFNYISN".
-
+function acronyms(str) {
+    var strArr = str.split(" ");
+    var retStr = "";
+    for (var ind = 0; ind < strArr.length; ind++) {
+        if (strArr[ind] == false) {
+            continue;
+        } else {
+            retStr += strArr[ind][0].toUpperCase();
+        }
+    }
+    return retStr;
+}
+var retStr= "Break me off a piece of that Kit Kat Bar"
+console.log((retStr))
 
 
 // Count Non-Spaces
 // Accept a string and return the number of non-space characters found in the string. 
 
 // For example, given "Honey pie, you are driving me crazy", return 29 (not 35).
-
+function countNS(str) {
+    var strArr = str.split("");
+    var count = 0;
+    for (var ind = 0; ind < strArr.length; ind++) {
+        if (strArr[ind] == false) {
+            continue;
+        } else {
+            count++;
+        }
+    }
+    return count;
+}
+console.log(countNS("Do, Re, Mi, Fa, So, La, Ti, Do"))
 
 
 // Remove Shorter Strings
 // Given a string array and value (length), remove any strings shorter than the length from the array.
+function removeShort(strArr, val) {
+    for (var ind = strArr.length-1; ind >= 0; ind--) {
+        if (strArr[ind].length < val) {
+            for (var i = ind; i < strArr.length-1; i++){
+                var temp = strArr[i];
+                strArr[i] = strArr[i+1];
+                strArr[i+1] = temp;
+            }
+            strArr.pop();
+        }
+    }
+    return strArr;
+}
+console.log(removeShort(["California", "Texas", "Hawaii", "Utah", "Nevada", "Alabama"], 6))
